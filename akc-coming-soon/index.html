@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en-IN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Apex Kidney Care — Coming Soon</title>
+    <meta
+      name="description"
+      content="Apex Kidney Care — India's pioneering renal care network. Our new website is coming soon."
+    />
+    <meta name="robots" content="noindex" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --navy: #001f34;
+        --accent: #009ee3;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+        margin: 0;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        background: var(--navy);
+        font-family: "Cormorant Garamond", Georgia, "Times New Roman", serif;
+        -webkit-font-smoothing: antialiased;
+        text-align: center;
+        padding: 24px;
+      }
+
+      .brand {
+        margin: 0;
+        font-size: 48px;
+        font-weight: 300;
+        letter-spacing: 0.04em;
+        line-height: 1.1;
+        color: #fff;
+      }
+
+      .brand span {
+        color: var(--accent);
+      }
+
+      /* The 1px rule with the accent bar sweeping across it, as on the site. */
+      .rule {
+        position: relative;
+        width: 200px;
+        height: 1px;
+        overflow: hidden;
+        background: rgb(255 255 255 / 0.1);
+      }
+
+      .rule span {
+        position: absolute;
+        inset: 0 auto 0 0;
+        width: 0;
+        background: var(--accent);
+        animation: load-progress 1.4s ease-in-out forwards;
+      }
+
+      .soon {
+        margin: 0;
+        font-size: 20px;
+        font-weight: 300;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: rgb(255 255 255 / 0.75);
+      }
+
+      @keyframes load-progress {
+        from {
+          width: 0%;
+        }
+        to {
+          width: 100%;
+        }
+      }
+
+      /* The wordmark is the one thing that must never wrap awkwardly. */
+      @media (max-width: 480px) {
+        .brand {
+          font-size: 34px;
+        }
+        .soon {
+          font-size: 15px;
+          letter-spacing: 0.22em;
+        }
+        .rule {
+          width: 160px;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        .rule span {
+          animation: none;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <p class="brand">Apex <span>Kidney Care</span></p>
+
+    <div class="rule" aria-hidden="true"><span></span></div>
+
+    <p class="soon">Coming Soon</p>
+  </body>
+</html>

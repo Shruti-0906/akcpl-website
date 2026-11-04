@@ -1,0 +1,197 @@
+@import "tailwindcss";
+
+@import "swiper/css" layer(base);
+@import "swiper/css/pagination" layer(base);
+@import "swiper/css/effect-fade" layer(base);
+
+@theme {
+  --color-primary: #00a0e3;
+  --color-primary-light: #009ee3;
+  --color-primary-subtle: #0075a9;
+
+  --color-secondary: #001f34;
+  --color-secondary-light: #003e68;
+
+  --color-tertiary: #c9922a;
+  --color-tertiary-subtle: #fdebc4;
+
+  --animate-marquee: marquee 80s linear infinite;
+  --animate-load-progress: load-progress 1.4s ease-in-out forwards;
+  --animate-kidney-float: kidney-float 8s ease-in-out infinite;
+  /** Hero copy easing in as its slide comes round. */
+  --animate-hero-copy: hero-copy 600ms ease-out both;
+
+  @keyframes marquee {
+    to {
+      transform: translateX(-100%);
+    }
+  }
+
+  @keyframes hero-copy {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes load-progress {
+    from {
+      width: 0%;
+    }
+    to {
+      width: 100%;
+    }
+  }
+
+  @keyframes kidney-float {
+    0%,
+    100% {
+      transform: scale(1);
+      opacity: 0.12;
+    }
+    50% {
+      transform: translateY(-2%) scale(1.03);
+      opacity: 0.16;
+    }
+  }
+}
+
+@theme inline {
+  --font-cormorant: var(--cormorant);
+  --font-roboto: var(--roboto);
+  --font-space-mono: var(--space-mono);
+}
+
+@utility bg-depth {
+  background-image: linear-gradient(
+    to right,
+    #001623 0%,
+    #046688 54%,
+    #013549 100%
+  );
+}
+
+@utility bg-depth-deep {
+  background-image: linear-gradient(to right, #011926 0%, #002f43 100%);
+}
+
+@utility bg-depth-band {
+  background-image: linear-gradient(to right, #001724 0%, #014058 100%);
+}
+
+@utility bg-depth-card {
+  background-image: linear-gradient(to bottom right, #003f57 0%, #001724 100%);
+}
+
+/** Hero backdrop: a teal and gold glow lifted over a deep navy diagonal. */
+@utility bg-hero-depth {
+  background-image:
+    radial-gradient(
+      ellipse 80% 60% at 70% 50%,
+      rgba(13, 138, 138, 0.18) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 20% 80%,
+      rgba(201, 146, 42, 0.1) 0%,
+      transparent 60%
+    ),
+    linear-gradient(135deg, #00111c 0%, #006693 50%, #001822 100%);
+}
+
+/** Hero backdrop in charcoal: the same glow shape over a slate diagonal. */
+@utility bg-hero-charcoal {
+  background-image:
+    radial-gradient(
+      ellipse 80% 60% at 70% 50%,
+      rgb(0 0 0 / 18%) 0%,
+      transparent 70%
+    ),
+    radial-gradient(
+      ellipse 50% 40% at 20% 80%,
+      rgb(0 0 0 / 10%) 0%,
+      transparent 60%
+    ),
+    linear-gradient(135deg, #1b1e20 0%, #353e44 50%, #1b1e20 100%);
+}
+
+/**
+ * The teal and gold corner glow the source lays over a navy chapter through
+ * `.chap-navy::before`. Sits on its own absolutely positioned layer.
+ */
+@utility bg-chapter-glow {
+  background-image:
+    radial-gradient(
+      ellipse 60% 50% at 92% 10%,
+      rgba(14, 124, 123, 0.2) 0%,
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse 45% 40% at 5% 92%,
+      rgba(184, 134, 11, 0.08) 0%,
+      transparent 60%
+    );
+}
+
+@utility bg-hero-grid {
+  background-image:
+    linear-gradient(rgba(13, 138, 138, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(13, 138, 138, 0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 80%);
+}
+
+@utility bg-noise {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+}
+
+/** Deep card face shared by the impact tiles and the investor document cards. */
+@utility bg-card-deep {
+  background-image: linear-gradient(135deg, #003e68 0%, #001a2c 100%);
+}
+
+/** Modality spectrum: foundational care through to frequency and freedom. */
+@utility bg-spectrum {
+  background-image: linear-gradient(
+    to right,
+    #9aa5c9 0%,
+    #5c71b7 39%,
+    #f4c46a 53%,
+    #b87e00 100%
+  );
+}
+
+@utility section-heading {
+  font-family: var(--font-cormorant);
+  font-size: var(--text-4xl);
+  font-weight: 600;
+  line-height: 1.25;
+
+  @variant lg {
+    font-size: 52px;
+  }
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
